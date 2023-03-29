@@ -10,11 +10,22 @@ export class Gui extends LilGui {
 
     this.close();
   }
+  /*
+const vec2 TILE_SIZE = vec2(25.0, 1.);
+const float LIGHT_LIMIT = 0.5;
+const float LINE_THIN = 0.05;
+const float LINE_LARGE = .4;
+
+  */
 
   initControllers() {
     this.val = {
       anim: {
-        timeline: 0,
+        tile_size_x: 0.5,
+        // tile_size_y: ,
+        light_limit: 0.5,
+        line_thin: 0.05,
+        line_large: 0.4,
         // speed: [0, 1, 10],
       },
     };

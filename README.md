@@ -1,3 +1,4 @@
 # Kairon Labs Playground
 
 [Playground v1](https://kairon-playground-v1.surge.sh/)
+[Playground v2](https://kairon-playground-v2.surge.sh/)

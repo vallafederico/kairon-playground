@@ -10,7 +10,7 @@ varying vec4 v_color;
 void main() {
 
     // point light
-    float ptl = abs(dot(normalize(vec3(1., 1., 1.)), v_normal));
+    float ptl = abs(dot(normalize(vec3(1., 0., 1.)), v_normal));
 
 
     gl_FragColor.rgb = vec3(ptl);
