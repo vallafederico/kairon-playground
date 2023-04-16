@@ -1,6 +1,7 @@
 precision highp float;
 
 #include ../../mat/glob.glsl
+#include ../../mat/blur.glsl
 // col_green_light
 // col_green_dark
 
@@ -31,8 +32,11 @@ void main() {
     float LINE_LARGE = u_line_large;
     // -- 
 
-    vec4 img = texture2D(u_texture, v_uv);
+    // vec4 img = texture2D(u_texture, v_uv);
+    vec4 img =  blur5(u_texture, v_uv, vec2(1920., 1080.), vec2(5., 5.));
     
+
+    // -------- image shader
     // Calculate the tile index and tile position
     vec2 tileIndex = floor(v_uv * u_resolution / TILE_SIZE);
     vec2 tilePos = mod(v_uv * u_resolution, TILE_SIZE) / TILE_SIZE;
@@ -54,8 +58,9 @@ void main() {
     
     // Final color
     vec3 final_color = mix(col_green_light, col_green_dark, 1. - ellipseMask);
-
+    // -------- image shader end
     
+    // gl_FragColor.rgb = (img).rgb;
     gl_FragColor.rgb = vec3(final_color);
     gl_FragColor.a = 1.0;
 }

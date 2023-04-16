@@ -21,11 +21,11 @@ const float LINE_LARGE = .4;
   initControllers() {
     this.val = {
       anim: {
-        tile_size_x: 0.5,
+        tile_size_x: 0.37,
         // tile_size_y: ,
-        light_limit: 0.5,
+        light_limit: 0.238,
         line_thin: 0.05,
-        line_large: 0.4,
+        line_large: 0.259,
         // speed: [0, 1, 10],
       },
     };

@@ -5,6 +5,8 @@ import { loadModel } from "./model-loader";
 export class Loader {
   constructor(gl) {
     this.gl = gl;
+    this.hash = roughScale(window.location.hash.substring(1), 10);
+    console.log(this.hash);
   }
 
   async load() {
@@ -16,11 +18,13 @@ export class Loader {
       toLoad.push(loadSomething(this.gl, value));
     }
 
-    const [model_logo] = await Promise.all(toLoad);
+    const [model_logo, model_all] = await Promise.all(toLoad);
+    console.log(model_all, model_all.meshes);
 
     window.store = {
-      model_logo: model_logo.meshes[0].primitives[0].geometry,
+      model_all: model_all.meshes[this.hash].primitives[0].geometry,
     };
+
     console.timeEnd("load -");
   }
 }
@@ -37,4 +41,12 @@ function loadSomething(gl, item) {
       return loadTexture(gl, item);
       break;
   }
+}
+
+function roughScale(x, base) {
+  const parsed = parseInt(x, base);
+  if (isNaN(parsed)) {
+    return 0;
+  }
+  return parsed;
 }

@@ -28,6 +28,13 @@ class App {
   initEvents() {
     // prettier-ignore
     new ResizeObserver((entry) => this.resize(entry[0])).observe(this.body);
+
+    // mouse
+    this.mouse = { x: 0, y: 0, ex: 0, ey: 0 };
+    document.addEventListener("mousemove", (e) => {
+      this.mouse.x = e.clientX;
+      this.mouse.y = e.clientY;
+    });
   }
 
   resize({ contentRect }) {

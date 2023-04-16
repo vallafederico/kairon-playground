@@ -1,3 +1,4 @@
+import Tween from "gsap";
 import { Renderer, Orbit } from "ogl";
 import Cam from "./_camera.js";
 import Scene from "./_scene.js";
@@ -22,6 +23,9 @@ export default class {
     // this.camera.lookAt([0, 0, 0]);
     // this.controls = new Orbit(this.camera);
 
+    this.timeActive = false;
+    this.mouse = { x: 0, y: 0, ex: 0, ey: 0 };
+
     this.scene = new Scene(this.gl);
     this.post = new Post(this.gl);
     this.time = 0;
@@ -30,13 +34,21 @@ export default class {
     this.initEvents();
 
     this.render();
+
+    setTimeout(() => {
+      this.timeActive = true;
+    }, 3000);
   }
 
   render(scroll = 0) {
-    this.time += 0.005;
+    if (this.timeActive) this.time += 0.005;
 
     if (this.controls) this.controls.update();
-    if (this.scene) this.scene.render(this.time);
+    if (this.scene) {
+      this.scene.rotation.y = this.mouse.ex;
+      this.scene.rotation.x = this.mouse.ey;
+      this.scene.render(this.time);
+    }
 
     window.requestAnimationFrame(this.render.bind(this));
 
@@ -73,7 +85,16 @@ export default class {
       this.wrapper
     );
     // mouse
-    this.mouse = { x: 0, y: 0 };
+    document.addEventListener("mousemove", (e) => {
+      this.mouse.x = (e.clientX / this.vp.w) * 2 - 1;
+      this.mouse.y = (e.clientY / this.vp.h) * 2 - 1;
+      Tween.to(this.mouse, {
+        ex: this.mouse.x,
+        ey: this.mouse.y,
+        duration: 1.5,
+        ease: "slow",
+      });
+    });
   }
 
   resize(entry) {

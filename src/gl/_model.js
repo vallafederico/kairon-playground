@@ -16,8 +16,8 @@ export class Model extends Mesh {
 
     const scale = 0.5;
     this.scale.set(scale, scale, scale);
-    this.rotation.y = -Math.PI / 3;
-    this.rotation.x = -Math.PI / 3;
+    this.rotation.y = -Math.PI / 2;
+    // this.rotation.x = -Math.PI / 3;
   }
 
   resize() {}
@@ -26,7 +26,7 @@ export class Model extends Mesh {
     this.program.time = t;
     // this.position.x = Math.sin(t) * 0.2;
 
-    this.rotation.y = t * 1;
+    this.rotation.y = -Math.PI / 2 + t * 1;
     this.rotation.x = t * 0.6;
     this.rotation.z = t * 0.2;
   }

@@ -1,4 +1,4 @@
-import { RenderTarget } from "ogl";
+import { RenderTarget, Texture } from "ogl";
 import Quad from "./quad.js";
 
 export class Post {
@@ -6,6 +6,7 @@ export class Post {
     this.gl = gl;
     this.isActive = true;
 
+    // this.after = new Texture(this.gl)
     this.rt = new RenderTarget(this.gl, {});
     this.quad = new Quad(this.gl);
     this.quad.program.texture = this.rt.texture;

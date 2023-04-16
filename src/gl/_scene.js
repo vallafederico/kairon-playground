@@ -25,7 +25,7 @@ export default class extends Transform {
 
   create() {
     this.model = new Model(this.gl, {
-      geometry: window.store.model_logo,
+      geometry: window.store.model_all,
     });
 
     this.model.setParent(this);

@@ -1,14 +1,14 @@
 lockfileVersion: 5.4
 
 specifiers:
+  gsap: ^3.11.5
   ogl: ^0.0.101
-  tiny-emitter: ^2.1.0
   vite: ^3.2.5
   vite-plugin-glsl: ^0.4.0
 
 dependencies:
+  gsap: 3.11.5
   ogl: 0.0.101
-  tiny-emitter: 2.1.0
 
 devDependencies:
   vite: 3.2.5
@@ -268,6 +268,10 @@ packages:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
     dev: true
 
+  /gsap/3.11.5:
+    resolution: {integrity: sha512-Q89nKCLgoX5xUjznh9LcaIUkz54k1voNucT1Rpf9SJNFIQznBwFqt5qUUQbeVInFyN/n18OUJkpeI6CNEDt74w==}
+    dev: false
+
   /has/1.0.3:
     resolution: {integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==}
     engines: {node: '>= 0.4.0'}
@@ -339,10 +343,6 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
-
-  /tiny-emitter/2.1.0:
-    resolution: {integrity: sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==}
-    dev: false
 
   /vite-plugin-glsl/0.4.0:
     resolution: {integrity: sha512-Q+g008AWOGOm1Ng63A2YoLEUkONFRNtzwTmK0mgL2V9Pf/omsd2TSrRHCVXa24CmEAxT1VtV5nH2+u/uCNTR9Q==}
