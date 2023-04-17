@@ -3,6 +3,7 @@ import { Transform } from "ogl";
 // import Quad from "./_quad.js";
 import { Loader } from "./util/loader.js";
 import { Model } from "./_model.js";
+import { Spinner } from "../modules/spinner.js";
 
 export default class extends Transform {
   constructor(gl, data = {}) {
@@ -16,6 +17,8 @@ export default class extends Transform {
   async load() {
     this.loader = new Loader(this.gl);
     await this.loader.load();
+
+    this.spinner = new Spinner();
 
     this.create();
     // console.log("loaded:", data);
@@ -33,7 +36,9 @@ export default class extends Transform {
 
   render(t) {
     if (!this.isOn) return;
-    if (this.model) this.model.render(t);
+
+    this.spinner?.render(t);
+    if (this.model) this.model.render(t, this.spinner);
     // if (this.quads) this.quads.forEach((item) => item.render(t));
   }
 

@@ -22,12 +22,13 @@ export class Model extends Mesh {
 
   resize() {}
 
-  render(t) {
+  render(t, { spin }) {
+    // console.log(spin);
     this.program.time = t;
     // this.position.x = Math.sin(t) * 0.2;
 
-    this.rotation.y = -Math.PI / 2 + t * 1;
-    this.rotation.x = t * 0.6;
-    this.rotation.z = t * 0.2;
+    this.rotation.y = -Math.PI / 2 + spin.x * 0.2;
+    // this.rotation.x = t * 0.6;
+    // this.rotation.z = t * 0.2;
   }
 }

@@ -45,8 +45,8 @@ export default class {
 
     if (this.controls) this.controls.update();
     if (this.scene) {
-      this.scene.rotation.y = this.mouse.ex;
-      this.scene.rotation.x = this.mouse.ey;
+      this.scene.rotation.y = this.mouse.ex * 0.5;
+      this.scene.rotation.x = this.mouse.ey * 0.5;
       this.scene.render(this.time);
     }
 
